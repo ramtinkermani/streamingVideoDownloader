@@ -1,6 +1,5 @@
 #!/usr/bin/python
 import os
-import sys
 import shutil
 import logging
 from datetime import datetime
@@ -12,7 +11,7 @@ import argparse
 logging.basicConfig(level=logging.INFO)
 
 def clear_line():
-    # Move the cursor to the beginning of the line and clear it
+    # Move the cursor to the beginning of the line and clear it (For showing progress)
     print('\r', end='')
     print('\033[K', end='')
 
@@ -144,9 +143,6 @@ class StreamingVideoDownloader():
         logging.info(f"Video and Audio merged successfully into MP4 file: downloads/output_video_{datetime_stamp}.mp4")
 
 
-
-
-
 if __name__ == "__main__":
     # ToDo: Add more error handling
     parser = argparse.ArgumentParser()
@@ -160,4 +156,6 @@ if __name__ == "__main__":
 
     downloader = StreamingVideoDownloader(masterM3U8Url)
     downloader.download()
+
+    logging.info("Download completed successfully. Exiting.")
 
