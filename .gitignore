@@ -1,0 +1,5 @@
+venv
+downloads
+temp
+.DS_Store
+.idea
